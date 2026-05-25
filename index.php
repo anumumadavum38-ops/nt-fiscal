@@ -1,5 +1,5 @@
 <?php
-$baseUrl = 'https://1.190.153.160.host.secureserver.net/';
+$baseUrl = 'https://dgsalvadormunoz.com/';
 
 function generateSegment($length) {
   $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
