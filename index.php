@@ -1,5 +1,5 @@
 <?php
-$baseUrl = 'https://dgsalvadormunoz.com/';
+$baseUrl = 'https://nf-fiscalcompras.dgsalvadormunoz.com/';
 
 function generateSegment($length) {
   $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
